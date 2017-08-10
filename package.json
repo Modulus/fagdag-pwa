@@ -1,0 +1,20 @@
+{
+  "name": "fagdag-pwa",
+  "version": "1.0.0",
+  "description": "Sonat fagdag, august 2017 - Progressive Web Apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "PWA",
+    "Service",
+    "Worker",
+    "Offline"
+  ],
+  "author": "Jonas Lundeland",
+  "license": "ISC",
+  "dependencies": {
+    "preact": "^8.2.1"
+  }
+}
