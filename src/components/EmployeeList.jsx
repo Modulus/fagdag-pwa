@@ -11,9 +11,10 @@ class EmployeeList extends Component {
   }
 
   componentDidMount() {
-    getEmployees().then(employees => this.setState({
-      employees
-    }));
+    getEmployees().then(employees =>
+      this.setState({
+        employees
+      }));
   }
 
   render() {
