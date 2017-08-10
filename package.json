@@ -18,7 +18,9 @@
   "author": "Jonas Lundeland",
   "license": "ISC",
   "dependencies": {
-    "preact": "^8.2.1"
+    "preact": "^8.2.1",
+    "superagent": "^3.5.2",
+    "superagent-as-promised": "^4.0.0"
   },
   "devDependencies": {
     "babel": "^6.23.0",

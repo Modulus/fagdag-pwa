@@ -1,9 +1,4 @@
 import { h, render } from 'preact';
+import EmployeeList from 'Components/EmployeeList.jsx';
 
-import EmployeeCard from 'Components/EmployeeCard.jsx';
-
-render((
-    <main id="fagdag-pwa">
-        <EmployeeCard name="Jonas Lundeland" />
-    </main>
-), document.getElementById('app-container'));
+render(<EmployeeList />, document.getElementById('app-container'));
