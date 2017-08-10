@@ -4,7 +4,10 @@
   "description": "Sonat fagdag, august 2017 - Progressive Web Apps",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "start": "webpack-dev-server --open"
   },
   "keywords": [
     "PWA",
@@ -16,5 +19,14 @@
   "license": "ISC",
   "dependencies": {
     "preact": "^8.2.1"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "webpack": "^3.5.3",
+    "webpack-dev-server": "^2.7.1"
   }
 }
