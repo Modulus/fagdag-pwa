@@ -1,9 +1,12 @@
 var path = require('path');
 
 const config = {
-  entry: './src/app.js',
+  entry: {
+    app: './src/app.js',
+    sw: './src/sw.js'
+  },
   output: {
-    filename: 'fagdag-pwa-bundle.js',
+    filename: "[name].js",
     path: path.resolve(__dirname, 'dist')
   },
   devtool: 'inline-source-map',
