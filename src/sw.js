@@ -3,7 +3,11 @@ const CACHE_VERSION = 'static-v1';
 const offlineResources = [
   '/index.html',
   '/offline.html',
-  '/app.js'
+  '/app.js',
+  '/icons/sonat_200x200.png',
+  '/icons/sonat_400x400.jpg',
+  '/style.css',
+  'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css'
 ];
 
 const cacheOfflineResources = () =>

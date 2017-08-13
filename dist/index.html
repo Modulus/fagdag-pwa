@@ -2,9 +2,16 @@
   <head>
     <title>Fagdag - PWA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+    <link rel="stylesheet" href="/style.css">
   </head>
-  <body id="app-container" class="container">
+  <body id="app-container">
+    <nav>
+      <div class="nav-wrapper brown darken-3">
+        <a href="#" class="brand-logo">Sonat</a>
+      </div>
+    </nav>
     <script src="app.js" defer></script>
     <script>
       if (navigator.serviceWorker) {

@@ -1,0 +1,12 @@
+body {
+  background: #fefefe;
+}
+
+.offline .logo {
+  width: 100%;
+}
+
+.offline h1 {
+  font-size: 2rem;
+  text-align: center;
+}
