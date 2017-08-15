@@ -17,6 +17,7 @@ const appShellFiles = [
   'app.js',
   'icons/sonat_200x200.png',
   'icons/sonat_400x400.jpg',
+  'icons/sonat_32x32.png',
   'style.css',
   'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css'
 ];

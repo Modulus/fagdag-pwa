@@ -19,7 +19,6 @@ class EmployeeList extends Component {
   }
 
   render() {
-    console.log(this.state.employees);
     return (
       <main className="container">
         <ul className="employee-list">

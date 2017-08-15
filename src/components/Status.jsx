@@ -36,7 +36,11 @@ class Status extends Component {
         <form className="col s12" onSubmit={this.handleSubmit.bind(this)}>
           <div className="row">
             <div className="input-field col s12">
-              <textarea id="status-update-textarea" ref={(textarea) => { this.textarea = textarea; }}></textarea>
+              <textarea
+                id="status-update-textarea"
+                defaultValue={this.state.employee.status}
+                ref={(textarea) => { this.textarea = textarea; }}>
+              </textarea>
             </div>
             <div className="col s2 offset-s10">
               <input type="submit" value="Send"></input>
