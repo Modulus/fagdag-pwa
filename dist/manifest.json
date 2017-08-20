@@ -8,12 +8,12 @@
   "background_color": "#fefefe",
   "icons": [
     {
-      "src": "icons/sonat_400x400.jpg",
+      "src": "/icons/sonat_400x400.jpg",
       "sizes": "400x400",
       "type": "image/jpg"
     },
     {
-      "src": "icons/sonat_200x200.png",
+      "src": "/icons/sonat_200x200.png",
       "sizes": "200x200",
       "type": "image/png"
     }

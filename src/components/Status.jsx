@@ -30,20 +30,20 @@ class Status extends Component {
       return null;
 
     return (
-      <main className="container">
+      <main>
         <h1>Oppdater status</h1>
         <h2>{this.state.employee.name}</h2>
-        <form className="col s12" onSubmit={this.handleSubmit.bind(this)}>
-          <div className="row">
-            <div className="input-field col s12">
+        <form onSubmit={this.handleSubmit.bind(this)}>
+          <div>
+            <div>
               <textarea
                 id="status-update-textarea"
                 defaultValue={this.state.employee.status}
                 ref={(textarea) => { this.textarea = textarea; }}>
               </textarea>
             </div>
-            <div className="col s2 offset-s10">
-              <input type="submit" value="Send"></input>
+            <div id="status-update-submit-wrapper">
+              <input className="btn" type="submit" value="Send"></input>
             </div>
           </div>
         </form>
