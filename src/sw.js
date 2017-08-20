@@ -10,15 +10,15 @@ const FILE_CACHE = 'app-shell-v1';
 const DATA_CACHE = 'employees-v1';
 
 const appShellFiles = [
-  '/',
-  '/index.html',
-  '/offline.html',
-  '/manifest.json',
-  '/app.js',
-  '/icons/sonat_200x200.png',
-  '/icons/sonat_400x400.jpg',
-  '/icons/sonat_32x32.png',
-  '/style.css'
+  '/fagdag-pwa/',
+  '/fagdag-pwa/index.html',
+  '/fagdag-pwa/offline.html',
+  '/fagdag-pwa/manifest.json',
+  '/fagdag-pwa/app.js',
+  '/fagdag-pwa/icons/sonat_200x200.png',
+  '/fagdag-pwa/icons/sonat_400x400.jpg',
+  '/fagdag-pwa/icons/sonat_32x32.png',
+  '/fagdag-pwa/style.css'
 ];
 
 const apiUrl = 'https://sonat-fagdag-pwa.firebaseio.com/employees.json';
