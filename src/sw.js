@@ -25,13 +25,10 @@ const appShellFiles = [
 const apiUrl = 'https://sonat-fagdag-pwa.firebaseio.com/employees.json';
 
 const cacheOfflineResources = () =>
-  Promise.all([caches.open(FILE_CACHE), caches.open(DATA_CACHE), fetch(apiUrl)])
-    .then(([fileCache, dataCache, response]) => {
+  Promise.all([caches.open(FILE_CACHE), caches.open(DATA_CACHE)])
+    .then(([fileCache, dataCache]) => {
       fileCache.addAll(appShellFiles);
       dataCache.add(apiUrl);
-      return response.clone().json().then(employees =>
-        fileCache.addAll(employees.map(employee =>
-          employee.image)));
     });
 
 const handleOffline = e => () => {
