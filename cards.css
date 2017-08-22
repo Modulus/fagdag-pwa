@@ -30,12 +30,12 @@
 .cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 .card {
   flex: 1;
   max-width: 300px;
-  margin: 20px 0;
+  margin: 10px;
   z-index: 1;
 }
 .card img {
