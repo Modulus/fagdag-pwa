@@ -1,8 +1,8 @@
 {
   "name": "Sonat",
   "short_name": "Sonat",
-  "start_url": "/fagdag-pwa/fagdag-pwa",
-  "scope": "/fagdag-pwa/fagdag-pwa",
+  "start_url": "/fagdag-pwa",
+  "scope": "/fagdag-pwa",
   "display": "standalone",
   "theme_color": "#4e342e",
   "background_color": "#fefefe",
