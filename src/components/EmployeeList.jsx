@@ -11,13 +11,12 @@ class EmployeeList extends Component {
   }
 
   componentDidMount() {
-    getEmployees().then(employees =>
-      this.setState({
-        employees
-      }));
+    getEmployees()
+      .then(employees =>
+        this.setState({ employees }));
   }
 
-  handleCardClick(e, id) {
+  onCardClick(e, id) {
     e.preventDefault();
     this.setState({ activeId: id != this.state.activeId ? id : null });
   }
@@ -26,12 +25,12 @@ class EmployeeList extends Component {
     const { activeId } = this.state;
     return (
       <main>
-        <ul className={classnames('cards employee-list', { showing: activeId !== null })} ref={ list => { this.list = list }}>
+        <ul className={classnames('cards', { 'cards--has-active-card': !!activeId })}>
           {
             this.state.employees.map(employee =>
               <EmployeeCard
                 {...employee}
-                onClick={this.handleCardClick.bind(this)}
+                onClick={this.onCardClick.bind(this)}
                 activeId={this.state.activeId}
               />
             )

@@ -6,8 +6,8 @@ import Status from 'Components/Status.jsx';
 
 const App = () => (
 	<Router>
-		<EmployeeList path="/fagdag-pwa/" />
-		<Status path="/fagdag-pwa/status/:id" />
+		<EmployeeList path="/" />
+		<Status path="/status/:id" />
 	</Router>
 );
 

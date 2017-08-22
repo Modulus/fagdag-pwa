@@ -6,7 +6,7 @@ const firstname = name =>
   name.split(' ')[0];
 
 const EmployeeCard = ({ id, name, image, mobile, email, status, onClick, activeId }) =>
-  <div className={classnames('card', { show: id === activeId })}>
+  <div className={classnames('card', { 'card--active': id === activeId })}>
     <div onClick={ e => onClick(e, id) }>
       <img src={ image } />
       <div className="card-title">
@@ -29,7 +29,7 @@ const EmployeeCard = ({ id, name, image, mobile, email, status, onClick, activeI
         <div className="card-actions">
           { mobile ? <a className="btn" href={ `tel:${ mobile }` }>Ring</a> : null }
           { email ? <a className="btn" href={ `mailto:${ email }`}>Send e-post</a> : null }
-          <Link className="btn" href={ `/fagdag-pwa/status/${id}` }>Oppdater status</Link>
+          <Link className="btn" href={ `/status/${id}` }>Oppdater status</Link>
         </div>
       </div>
     </div>

@@ -10,24 +10,28 @@ const FILE_CACHE = 'app-shell-v1';
 const DATA_CACHE = 'employees-v1';
 
 const appShellFiles = [
-  '/fagdag-pwa/',
-  '/fagdag-pwa/index.html',
-  '/fagdag-pwa/offline.html',
-  '/fagdag-pwa/manifest.json',
-  '/fagdag-pwa/app.js',
-  '/fagdag-pwa/icons/sonat_200x200.png',
-  '/fagdag-pwa/icons/sonat_400x400.jpg',
-  '/fagdag-pwa/icons/sonat_32x32.png',
-  '/fagdag-pwa/style.css'
+  '/',
+  '/index.html',
+  '/offline.html',
+  '/manifest.json',
+  '/app.js',
+  '/icons/sonat_200x200.png',
+  '/icons/sonat_400x400.jpg',
+  '/icons/sonat_32x32.png',
+  '/style.css',
+  '/cards.css',
 ];
 
 const apiUrl = 'https://sonat-fagdag-pwa.firebaseio.com/employees.json';
 
 const cacheOfflineResources = () =>
-  Promise.all([caches.open(FILE_CACHE), caches.open(DATA_CACHE)])
-    .then(([fileCache, dataCache]) => {
+  Promise.all([caches.open(FILE_CACHE), caches.open(DATA_CACHE), fetch(apiUrl)])
+    .then(([fileCache, dataCache, response]) => {
       fileCache.addAll(appShellFiles);
       dataCache.add(apiUrl);
+      return response.clone().json().then(employees =>
+        fileCache.addAll(employees.map(employee =>
+          employee.image)));
     });
 
 const handleOffline = e => () => {
@@ -41,19 +45,17 @@ const getCachedFiles = e =>
     .catch(handleOffline(e))
 
 const fetchEmployeeData = request =>
-    Promise.all([caches.open(DATA_CACHE), fetch(request)])
-      .then(([cache, response]) => {
-        cache.put(request.url, response.clone());
+    Promise.all([caches.open(FILE_CACHE), caches.open(DATA_CACHE), fetch(request)])
+      .then(([fileCache, dataCache, response]) => {
+        dataCache.put(request.url, response.clone());
         return response;
       })
       .catch(error => { /* No internet connection */ });
 
-const cacheFirstThenNetwork = e =>
+const fetchWithFallBackToCache = e =>
   caches.match(e.request)
-    .then(response => {
-      setTimeout(() => fetchEmployeeData(e.request), 0);
-      return response;
-    });
+    .then(response => navigator.onLine ? fetchEmployeeData(e.request) : response.clone())
+    .catch(navigator.onLine ? fetchEmployeeData(e.request) : []);
 
 /* Lytt på install event
  * https://developer.mozilla.org/en-US/docs/Web/API/InstallEvent
@@ -69,7 +71,7 @@ self.addEventListener('install', (e) => {
 
 self.addEventListener('fetch', (e) => {
   if (e.request.url === apiUrl) {
-    e.respondWith(cacheFirstThenNetwork(e));
+    e.respondWith(fetchWithFallBackToCache(e));
   } else {
     e.respondWith(getCachedFiles(e));
   }
