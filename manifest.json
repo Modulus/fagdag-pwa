@@ -1,19 +1,19 @@
 {
   "name": "Sonat",
   "short_name": "Sonat",
-  "start_url": "/fagdag-pwa",
-  "scope": "/fagdag-pwa",
+  "start_url": "/fagdag-pwa/fagdag-pwa",
+  "scope": "/fagdag-pwa/fagdag-pwa",
   "display": "standalone",
   "theme_color": "#4e342e",
   "background_color": "#fefefe",
   "icons": [
     {
-      "src": "/icons/sonat_400x400.jpg",
+      "src": "/fagdag-pwa/icons/sonat_400x400.jpg",
       "sizes": "400x400",
       "type": "image/jpg"
     },
     {
-      "src": "/icons/sonat_200x200.png",
+      "src": "/fagdag-pwa/icons/sonat_200x200.png",
       "sizes": "200x200",
       "type": "image/png"
     }
