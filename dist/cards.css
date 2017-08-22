@@ -37,6 +37,7 @@
   max-width: 300px;
   margin: 10px;
   z-index: 1;
+  position: relative;
 }
 .card img {
   max-width: 300px;
