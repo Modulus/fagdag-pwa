@@ -9,8 +9,6 @@
 const FILE_CACHE = 'app-shell-v1';
 
 const appShellFiles = [
-  '/',
-  '/index.html',
   '/offline.html',
   '/manifest.json',
   '/app.js',
@@ -29,7 +27,7 @@ const cacheOfflineResources = () =>
 
 const handleOffline = e => () => {
   if (e.request.mode === 'navigate')
-    return caches.match('offline.html', { ignoreSearch: true })
+    return caches.match('/offline.html');
 };
 
 const getCachedFiles = e =>

@@ -23,8 +23,15 @@ ul {
   padding: 0;
 }
 
+.offline {
+  padding: 20px;
+}
+
 .offline .logo {
-  width: 100%;
+  width: 200px;
+  margin: auto;
+  display: block;
+  border-radius: 50%;
 }
 
 #status-update-textarea {
