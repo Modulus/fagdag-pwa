@@ -7,7 +7,6 @@
  */
 
 const FILE_CACHE = 'app-shell-v1';
-const DATA_CACHE = 'employees-v1';
 
 const appShellFiles = [
   '/',
@@ -22,13 +21,10 @@ const appShellFiles = [
   '/cards.css',
 ];
 
-const apiUrl = 'https://sonat-fagdag-pwa.firebaseio.com/employees.json';
-
 const cacheOfflineResources = () =>
-  Promise.all([caches.open(FILE_CACHE), caches.open(DATA_CACHE)])
-    .then(([fileCache, dataCache]) => {
+  Promise.all([caches.open(FILE_CACHE)])
+    .then(([fileCache]) => {
       fileCache.addAll(appShellFiles);
-      dataCache.add(apiUrl);
     });
 
 const handleOffline = e => () => {
@@ -58,9 +54,5 @@ self.addEventListener('install', (e) => {
  */
 
 self.addEventListener('fetch', (e) => {
-  if (e.request.url === apiUrl) {
-    e.respondWith(getEmployeeDataFromCache(e));
-  } else {
-    e.respondWith(getCachedFiles(e));
-  }
+  e.respondWith(getCachedFiles(e));
 });
