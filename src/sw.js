@@ -26,8 +26,7 @@ const cacheOfflineResources = () =>
     });
 
 const handleOffline = e => () => {
-  if (e.request.mode === 'navigate')
-    return caches.match('/offline.html');
+  /* Hint: Serve offline.html if e.request.mode is 'navigate' */
 };
 
 const getCachedFiles = e =>
