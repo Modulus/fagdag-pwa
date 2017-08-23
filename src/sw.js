@@ -41,18 +41,9 @@ const getCachedFiles = e =>
     .then(response => response || fetch(e.request))
     .catch(handleOffline(e))
 
-const fetchEmployeeData = request =>
-    Promise.all([caches.open(FILE_CACHE), caches.open(DATA_CACHE), fetch(request)])
-      .then(([fileCache, dataCache, response]) => {
-        dataCache.put(request.url, response.clone());
-        return response;
-      })
-      .catch(error => { /* No internet connection */ });
-
-const fetchWithFallBackToCache = e =>
+const getEmployeeDataFromCache = e =>
   caches.match(e.request)
-    .then(response => navigator.onLine ? fetchEmployeeData(e.request) : response.clone())
-    .catch(navigator.onLine ? fetchEmployeeData(e.request) : []);
+    .then(response => response.clone());
 
 /* Lytt på install event
  * https://developer.mozilla.org/en-US/docs/Web/API/InstallEvent
@@ -68,7 +59,7 @@ self.addEventListener('install', (e) => {
 
 self.addEventListener('fetch', (e) => {
   if (e.request.url === apiUrl) {
-    e.respondWith(fetchWithFallBackToCache(e));
+    e.respondWith(getEmployeeDataFromCache(e));
   } else {
     e.respondWith(getCachedFiles(e));
   }
