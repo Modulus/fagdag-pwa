@@ -16,7 +16,7 @@ const appShellFiles = [
   '/icons/sonat_400x400.jpg',
   '/icons/sonat_32x32.png',
   '/style.css',
-  '/cards.css',
+  '/cards.css'
 ];
 
 const cacheOfflineResources = () =>
@@ -24,19 +24,6 @@ const cacheOfflineResources = () =>
     .then(([fileCache]) => {
       fileCache.addAll(appShellFiles);
     });
-
-const handleOffline = e => () => {
-  /* Hint: Serve offline.html if e.request.mode is 'navigate' */
-};
-
-const getCachedFiles = e =>
-  caches.match(e.request)
-    .then(response => response || fetch(e.request))
-    .catch(handleOffline(e))
-
-const getEmployeeDataFromCache = e =>
-  caches.match(e.request)
-    .then(response => response.clone());
 
 /* Lytt på install event
  * https://developer.mozilla.org/en-US/docs/Web/API/InstallEvent
@@ -51,5 +38,5 @@ self.addEventListener('install', (e) => {
  */
 
 self.addEventListener('fetch', (e) => {
-  e.respondWith(getCachedFiles(e));
+  /* Hint: Dersom request fins i cache, returner direkte fra cache, ellers lar vi requesten gå gjennom */
 });
